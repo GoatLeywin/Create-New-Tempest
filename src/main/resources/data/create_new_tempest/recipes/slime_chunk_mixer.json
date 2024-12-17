@@ -1,0 +1,39 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tensura:slime_chunk"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_new_tempest:blue_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "create_new_tempest:teal_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "create_new_tempest:green_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "create_new_tempest:red_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "create_new_tempest:yellow_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "create_new_tempest:pink_slime_poop",
+      "chance": 0.14
+    },
+    {
+      "item": "tensura:slime_core",
+      "chance": 0.04
+    }
+  ]
+}
+
