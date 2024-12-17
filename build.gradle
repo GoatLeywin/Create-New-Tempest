@@ -118,10 +118,35 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
     // flatDir {
     //     dir 'libs'
     // }
+    mavenCentral()
+    maven {url = 'https://maven.minecraftforge.net'}
+    maven { url = 'https://maven.parchmentmc.org/' }
+
+    flatDir {
+        dirs 'lib'
+    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com/"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
+
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven' }
+    maven { url 'https://dl.cloudsmith.io/public/manasmods/manascore/maven/' }
+    maven { url 'https://dl.cloudsmith.io/public/manasmods/tensura/maven/' }
+    maven { url 'https://jitpack.io/' }
+    maven { url "https://maven.firstdarkdev.xyz/snapshots" }
 }
 
 dependencies {
@@ -131,7 +156,12 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf("com.github.manasmods:ManasCore:${minecraft_version}-${manasCoreVersion}")
+    implementation fg.deobf("com.github.manasmods:tensura:${minecraft_version}-${tensuraVersion}")
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.40')
+    //implementation fg.deobf("curse.maven:gecko-${geckoVersion}")
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.19.2-2.0.1.162')
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
@@ -145,6 +175,7 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
