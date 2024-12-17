@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:netherrack"
+    }
+  ],
+  "results": [
+    {
+      "item": "tensura:demon_essence",
+      "chance": 0.02
+    }
+  ],
+  "processingTime": 100
+}

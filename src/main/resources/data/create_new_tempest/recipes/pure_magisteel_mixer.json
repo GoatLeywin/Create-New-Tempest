@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tensura:magic_ore_shard",
+      "count": 36
+    }
+  ],
+  "results": [
+    {
+      "item": "tensura:pure_magisteel_ingot",
+      "count": 1
+    }
+  ],
+  "heatRequirement": "heated"
+}
