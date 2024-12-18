@@ -2,7 +2,7 @@ package net.goatmorreti.create_new_tempest.registry.skill;
 
 
 import net.goatmorreti.create_new_tempest.CreateNewTempest;
-import net.goatmorreti.create_new_tempest.ability.skill.extra.ExampleExtraSkill;
+import net.goatmorreti.create_new_tempest.ability.skill.extra.engineers_goggle_skill;
 import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -38,8 +38,8 @@ public class AllSkills {
     //   ================
     //   | Extra Skills |
     //   ================
-    public static final RegistryObject<ExampleExtraSkill> EXAMPLE_EXTRA =
-            skillRegistry.register("example_extra", ExampleExtraSkill::new);
+    public static final RegistryObject<engineers_goggle_skill> EXAMPLE_EXTRA =
+            skillRegistry.register("engineers_goggle_skill", engineers_goggle_skill::new);
 
     //   =================
     //   | Unique Skills |
