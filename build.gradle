@@ -129,7 +129,8 @@ repositories {
     // }
     mavenCentral()
     maven {url = 'https://maven.minecraftforge.net'}
-    maven { url = 'https://maven.parchmentmc.org/' }
+    maven {url = 'https://maven.parchmentmc.org/' }
+    maven {url = 'https://maven.architectury.dev/'}
 
     flatDir {
         dirs 'lib'
@@ -170,6 +171,10 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
+    // Replace with the appropriate Architectury version
+    //implementation fg.deobf("dev.architectury:architectury-api:${architectury_version}")
+    // For Fabric or Forge, include the appropriate loader dependency
+    //compileOnly fg.deobf("dev.architectury:architectury-common:${architectury_version}")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
