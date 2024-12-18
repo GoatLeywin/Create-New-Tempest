@@ -45,7 +45,7 @@ public class engineers_goggle_skill extends Skill {
 
     @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
-        return instance.isMastered(entity); // Allow toggling only if mastered
+        return true; // Skill can be toggled without mastery
     }
 
     @Override
@@ -90,11 +90,11 @@ public class engineers_goggle_skill extends Skill {
 
     private void addGoggleTag(Player player) {
         // Add the "goggle" tag to the player's persistent data
-        player.getPersistentData().putBoolean("create.goggle", true);
+            player.getPersistentData().putBoolean("create.goggle", true);
     }
 
     private void removeGoggleTag(Player player) {
         // Remove the "goggle" tag from the player's persistent data
-        player.getPersistentData().remove("create.goggle");
+        player.getPersistentData().putBoolean("create.goggle", true);
     }
 }
