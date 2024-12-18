@@ -15,9 +15,9 @@ import net.minecraft.world.entity.player.Player;
 
 public class engineers_goggle_skill extends Skill {
 
-    private final double skillCastCost = 10.0; // Magicule cost per tick
-    private final double epUnlockCost = 5000.0; // EP needed to unlock the skill
-    private final double learnCost = 50.0; // Learning difficulty
+    private final double skillCastCost = 10.0;
+    private final double epUnlockCost = 5000.0;
+    private final double learnCost = 50.0;
 
     public engineers_goggle_skill() {
         super(SkillType.EXTRA);
@@ -45,12 +45,12 @@ public class engineers_goggle_skill extends Skill {
 
     @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
-        return true; // Skill can be toggled without mastery
+        return true;
     }
 
     @Override
     public boolean canTick(ManasSkillInstance instance, LivingEntity entity) {
-        return instance.isToggled(); // Tick only if the skill is toggled on
+        return instance.isToggled() && instance.isMastered(entity);
     }
 
     @Override
@@ -59,8 +59,7 @@ public class engineers_goggle_skill extends Skill {
             addGoggleTag(player);
             player.displayClientMessage(Component.translatable("skill.engineers_goggle.activated")
                     .setStyle(Style.EMPTY.withColor(ChatFormatting.GREEN)), true);
-            player.getLevel().playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.CONDUIT_ACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
+            player.getLevel().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.CONDUIT_ACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
         }
     }
 
@@ -70,31 +69,27 @@ public class engineers_goggle_skill extends Skill {
             removeGoggleTag(player);
             player.displayClientMessage(Component.translatable("skill.engineers_goggle.deactivated")
                     .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)), true);
-            player.getLevel().playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.CONDUIT_DEACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
+            player.getLevel().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.CONDUIT_DEACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
         }
     }
 
     @Override
     public void onTick(ManasSkillInstance instance, LivingEntity entity) {
         if (entity instanceof Player player) {
-            if (SkillHelper.outOfMagicule(player, skillCastCost)) {
-                // If out of magicules, toggle off the skill
+            if (SkillHelper.outOfMagicule(player, skillCastCost * 5)) {
                 instance.setToggled(false);
-                onToggleOff(instance, player);
                 player.displayClientMessage(Component.translatable("skill.engineers_goggle.lack_magicule")
                         .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)), true);
+                removeGoggleTag(player);
             }
         }
     }
 
     private void addGoggleTag(Player player) {
-        // Add the "goggle" tag to the player's persistent data
-            player.getPersistentData().putBoolean("create.goggle", true);
+        player.getPersistentData().putBoolean("create_new_tempest.create.goggle", true);
     }
 
     private void removeGoggleTag(Player player) {
-        // Remove the "goggle" tag from the player's persistent data
-        player.getPersistentData().putBoolean("create.goggle", true);
+        player.getPersistentData().remove("create_new_tempest.create.goggle");
     }
 }

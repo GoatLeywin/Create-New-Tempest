@@ -38,7 +38,7 @@ public class AllSkills {
     //   ================
     //   | Extra Skills |
     //   ================
-    public static final RegistryObject<engineers_goggle_skill> EXAMPLE_EXTRA =
+    public static final RegistryObject<engineers_goggle_skill> ENGINEERS_GOGGLE_SKILL =
             skillRegistry.register("engineers_goggle_skill", engineers_goggle_skill::new);
 
     //   =================

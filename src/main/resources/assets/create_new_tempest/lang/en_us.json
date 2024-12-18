@@ -6,7 +6,7 @@
   "item.create_new_tempest.yellow_slime_poop": "Yellow Slime Poop",
   "item.create_new_tempest.green_slime_poop": "Green Slime Poop",
 
-  "create_new_tempest.skill.engineers_goggle_skill": "Example Extra",
+  "create_new_tempest.skill.engineers_goggle_skill": "Engineers Goggle Skill",
   "create_new_tempest.skill.engineers_goggle_skill.description": "This is a description for the extra skill. Edit this description using the en_us.json file.",
 
   "itemGroup.create_new_tempest_tab": "Create: New Tempest"
