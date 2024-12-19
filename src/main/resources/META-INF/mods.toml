@@ -41,7 +41,7 @@ authors="${mod_authors}" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''${mod_description}'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.tutorialmod]] #optional
+[[dependencies.create_new_tempest]] #optional
 # the modid of the dependency
 modId="forge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
@@ -55,10 +55,24 @@ ordering="NONE"
 # Side this dependency is applied on - BOTH, CLIENT, or SERVER
 side="BOTH"
 # Here's another dependency
-[[dependencies.tutorialmod]]
+[[dependencies.create_new_tempest]]
 modId="minecraft"
 mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
 ordering="NONE"
+side="BOTH"
+
+[[dependencies.create_new_tempest]]
+modId="create"
+mandatory=true
+versionRange="[0.5.1,)" # Replace with the minimum compatible Create version
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.create_new_tempest]]
+modId="tensura"
+mandatory=true
+versionRange="[1.0.0.7,)" # Replace with the minimum compatible Tensura version
+ordering="AFTER"
 side="BOTH"

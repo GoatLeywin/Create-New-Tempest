@@ -119,23 +119,18 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
+    // ForgeGradle automatically adds the Forge maven and Maven Central for you.
     mavenCentral()
-    maven {url = 'https://maven.minecraftforge.net'}
-    maven {url = 'https://maven.parchmentmc.org/' }
-    maven {url = 'https://maven.architectury.dev/'}
+    maven { url = 'https://maven.minecraftforge.net' }
+    maven { url = 'https://maven.parchmentmc.org/' }
+    maven { url = 'https://maven.architectury.dev/' }
 
+    // For libraries stored locally in the `lib` folder.
     flatDir {
         dirs 'lib'
     }
 
+    // CurseForge Maven for mod dependencies.
     exclusiveContent {
         forRepository {
             maven {
@@ -147,27 +142,34 @@ repositories {
         }
     }
 
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven' }
-    maven { url 'https://dl.cloudsmith.io/public/manasmods/manascore/maven/' }
-    maven { url 'https://dl.cloudsmith.io/public/manasmods/tensura/maven/' }
-    maven { url 'https://jitpack.io/' }
-    maven { url "https://maven.firstdarkdev.xyz/snapshots" }
+    // Specific Maven repositories for required mods and libraries.
+    maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven' }
+    maven { url = 'https://dl.cloudsmith.io/public/manasmods/manascore/maven/' }
+    maven { url = 'https://dl.cloudsmith.io/public/manasmods/tensura/maven/' }
+    maven { url = 'https://jitpack.io/' }
 }
 
+
 dependencies {
-    // Specify the version of Minecraft to use.
-    // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
-    // The "userdev" classifier will be requested and setup by ForgeGradle.
-    // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
-    // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
+    // Minecraft and Forge versions
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Annotation processor for Mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // ManasMods dependencies (ManasCore and Tensura)
     implementation fg.deobf("com.github.manasmods:ManasCore:${minecraft_version}-${manasCoreVersion}")
     implementation fg.deobf("com.github.manasmods:tensura:${minecraft_version}-${tensuraVersion}")
+
+    // Geckolib for animations
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.40')
-    //implementation fg.deobf("curse.maven:gecko-${geckoVersion}")
+
+    // TerraBlender for biome-related features
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.19.2-2.0.1.162')
-    // Real mod deobf dependency examples - these get remapped to your current mappings
+
+    // Create mod and Flywheel (required by Create)
+    implementation fg.deobf("com.simibubi.create:create:${minecraft_version}-${create_version}")
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}-0.6.8")    // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
