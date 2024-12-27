@@ -15,12 +15,14 @@
   "create_new_tempest.skill.mode.mechanical_hands.remove": "Remove",
 
   "create_new_tempest.race.mechanical_construct": "Mechanical Construct",
-  "create_new_tempest.race.mechanical_construct.notes": "A powerful mechanical race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs, but a dire weakness to water",
+  "create_new_tempest.race.mechanical_construct.notes": "A powerful mechanical race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs, but a dire weakness to water.",
 
   "create_new_tempest.race.mechanical_colossus": "Mechanical Colossus",
 
   "create_new_tempest.skill.mechanical_body": "Mechanical Body",
   "create_new_tempest.skill.mechanical_body.description": "When activated, this skill allows you to create and command another mechanical body, ensuring that even the harshest blows cannot end your existence.",
+
+  "create_new_tempest.race.mechanical_titan": "Mechanical Titan",
 
   "itemGroup.create_new_tempest_tab": "Create: New Tempest"
 }

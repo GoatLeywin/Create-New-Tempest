@@ -81,8 +81,8 @@ public class CreateNewTempest {
         File tomlFile = new File("defaultconfigs/tensura-reincarnated/common.toml");
         StringBuilder contentBuilder = new StringBuilder();
 
-        String line;
         try (BufferedReader reader = new BufferedReader(new FileReader(tomlFile))) {
+            String line;
             while ((line = reader.readLine()) != null) {
                 contentBuilder.append(line).append(System.lineSeparator());
             }
@@ -93,16 +93,21 @@ public class CreateNewTempest {
         }
 
         String content = contentBuilder.toString();
-        line = Arrays.toString(new String[]{"create_new_tempest:mechanical_construct", "create_new_tempest:mechanical_colossus"});
-        String[] newRandom = new String[]{"create_new_tempest:mechanical_construct", "create_new_tempest:mechanical_colossus"};
-        //String[] newSkills = new String[]{"trmysticism:dreamer", "trmysticism:crasher"};
+        String[] startingRaces = {"create_new_tempest:mechanical_construct"};
+        String[] randomRaces = {"create_new_tempest:mechanical_construct"};
+        // Uncomment and use this array if you want to add new skills
+        // String[] newSkills = {"create_new_tempest:some_skill"};
+
         String startingRacesKey = "startingRaces = [";
         String randomRacesKey = "possibleRandomRaces = [";
-        String reincarnationSkillsKey = "reincarnationSkills = [";
-        content = this.addItemsToTOMLList(content, startingRacesKey, new String[]{line});
-        content = this.addItemsToTOMLList(content, randomRacesKey, newRandom);
-        //content = this.addItemsToTOMLList(content, reincarnationSkillsKey, newSkills);
+        // String reincarnationSkillsKey = "reincarnationSkills = [";
 
+        // Add the items to the corresponding lists in the TOML file content
+        content = this.addItemsToTOMLList(content, startingRacesKey, startingRaces);
+        content = this.addItemsToTOMLList(content, randomRacesKey, randomRaces);
+        // content = this.addItemsToTOMLList(content, reincarnationSkillsKey, newSkills);
+
+        // Write the updated content back to the TOML file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(tomlFile))) {
             writer.write(content);
         } catch (IOException e) {
@@ -112,6 +117,7 @@ public class CreateNewTempest {
 
         System.out.println("Items added to TOML lists successfully.");
     }
+
 
     private String addItemsToTOMLList(String content, String listKey, String[] newItems) {
         int index = content.indexOf(listKey);
