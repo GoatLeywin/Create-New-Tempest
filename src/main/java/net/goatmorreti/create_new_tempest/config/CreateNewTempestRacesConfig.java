@@ -4,9 +4,11 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public class CreateNewTempestRacesConfig {
     public ForgeConfigSpec.DoubleValue epToMechanicalColossus;
+    public ForgeConfigSpec.DoubleValue epToMechanicalTitan;
 
     public CreateNewTempestRacesConfig(ForgeConfigSpec.Builder builder) {
         builder.push("evolutionEPRequirements");
         this.epToMechanicalColossus = builder.comment("The amount of EP needed to evolve into a Mechanical Colossus").defineInRange("epToMechanicalColossus", (double) 20000.0F, (double) 0.0F, (double) 1.0E9F);
+        this.epToMechanicalTitan = builder.comment("The amount of EP needed to evolve into a Mechanical Titan").defineInRange("epToMechanicalColossus", (double) 50000.0F, (double) 0.0F, (double) 1.0E9F);
     }
 }

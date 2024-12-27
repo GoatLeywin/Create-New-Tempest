@@ -4,9 +4,7 @@ import com.github.manasmods.tensura.ability.TensuraSkill;
 import com.github.manasmods.tensura.capability.race.TensuraPlayerCapability;
 import com.github.manasmods.tensura.race.Race;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
-import com.github.manasmods.tensura.registry.race.TensuraRaces;
 import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
-import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
 import com.mojang.datafixers.util.Pair;
@@ -17,20 +15,19 @@ import java.util.List;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.registries.IForgeRegistry;
 
-public class MechanicalColossusRace extends Race {
+public class MechanicalTitanRace extends Race {
 
-    public MechanicalColossusRace() {
+    public MechanicalTitanRace() {
         super(Difficulty.INTERMEDIATE);
     }
 
     public double getBaseHealth() {
-        return (double)52.0F;
+        return (double)104.0F;
     }
 
     public float getPlayerSize() {
-        return 2.5F;
+        return 4.0F;
     }
 
     public double getBaseAttackDamage() {
@@ -50,15 +47,15 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 0.08;
+        return 0.1;
     }
 
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(30.0, 300.0);
+        return Pair.of(500.0, 1000.0);
     }
 
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(4500.0, 9000.0);
+        return Pair.of(9000.0, 18000.0);
     }
 
     public boolean isMajin() {
@@ -75,18 +72,17 @@ public class MechanicalColossusRace extends Race {
 
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.MECHANICAL_BODY_SKILL.get());
         return skills;
     }
 
     public List<Race> getNextEvolutions(Player player) {
-        List<Race> list = new ArrayList<>();
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_TITAN));
-        return list;
+        List<Race> evolutions = new ArrayList<>();
+        // Define future evolutions if applicable
+        return evolutions;
     }
 
     public double getEvolutionPercentage(Player player) {
-        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalColossus.get();
+        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalTitan.get();
     }
 
     public void raceTick(Player player) {
@@ -101,4 +97,5 @@ public class MechanicalColossusRace extends Race {
         }
     }
 }
+
 
