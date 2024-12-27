@@ -1,9 +1,10 @@
-package net.goatmorreti.create_new_tempest.race.sculk;
+package net.goatmorreti.create_new_tempest.race.mechanical_construct;
 
 import com.github.manasmods.tensura.ability.TensuraSkill;
 import com.github.manasmods.tensura.race.Race;
-import com.github.manasmods.tensura.race.vampire.VampireRace;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
+import com.github.manasmods.tensura.registry.race.TensuraRaces;
+import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
 import com.mojang.datafixers.util.Pair;
@@ -13,12 +14,12 @@ import java.util.List;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.registries.IForgeRegistry;
 
-public class MechanicalColossusRace extends Race {
+public class MechanicalConstructRace extends Race {
 
-    public MechanicalColossusRace() {
+    public MechanicalConstructRace() {
         super(Difficulty.INTERMEDIATE);
     }
 
@@ -27,7 +28,7 @@ public class MechanicalColossusRace extends Race {
     }
 
     public float getPlayerSize() {
-        return 2.5F;
+        return 0.8F;
     }
 
     public double getBaseAttackDamage() {
@@ -39,7 +40,7 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getKnockbackResistance() {
-        return (double)1.0F;
+        return (double)0.5F;
     }
 
     public double getJumpHeight() {
@@ -47,10 +48,8 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 2.0;
+        return 0.05;
     }
-
-    public double getSprintSpeed() {return 0.26;}
 
     @Override
     public Pair<Double, Double> getBaseAuraRange() {
@@ -87,11 +86,19 @@ public class MechanicalColossusRace extends Race {
 
     @Override
     public List<Race> getNextEvolutions(Player player) {
-        List<Race> evolutions = new ArrayList<>();
-        // Define future evolutions if applicable
-        return evolutions;
+        List<Race> list = new ArrayList();
+        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_COLOSSUS));
+        return list;
     }
     public void raceTick(Player player) {
-        player.addEffect(new MobEffectInstance((MobEffect) TensuraMobEffects.CORROSION.get(), 40, 2, false, false, false));
+        if (player.isInWater()) {
+            // Apply Corrosion I when the player is in water
+            player.addEffect(new MobEffectInstance((MobEffect) TensuraMobEffects.CORROSION.get(), 40, 1, false, false, false));
+        }
+
+        if (player.level.isRainingAt(player.blockPosition())) {
+            // Apply Paralysis I when the player is in rain, but not in water
+            player.addEffect(new MobEffectInstance((MobEffect) TensuraMobEffects.PARALYSIS.get(), 40, 0, false, false, false));
+        }
     }
 }

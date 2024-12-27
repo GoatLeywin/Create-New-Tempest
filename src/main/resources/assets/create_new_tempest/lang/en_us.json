@@ -14,8 +14,10 @@
   "create_new_tempest.skill.mode.mechanical_hands.rotate": "Rotate",
   "create_new_tempest.skill.mode.mechanical_hands.remove": "Remove",
 
+  "create_new_tempest.race.mechanical_construct": "Mechanical Construct",
+  "create_new_tempest.race.mechanical_construct.notes": "A powerful mechanical race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs, but a dire weakness to water",
+
   "create_new_tempest.race.mechanical_colossus": "Mechanical Colossus",
-  "create_new_tempest.race.mechanical_colossus.notes": "A powerful mechanical golem race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs.",
 
   "itemGroup.create_new_tempest_tab": "Create: New Tempest"
 }
