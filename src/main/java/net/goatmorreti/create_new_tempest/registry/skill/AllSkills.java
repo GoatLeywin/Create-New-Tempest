@@ -2,9 +2,10 @@ package net.goatmorreti.create_new_tempest.registry.skill;
 
 
 import net.goatmorreti.create_new_tempest.CreateNewTempest;
-import net.goatmorreti.create_new_tempest.ability.skill.extra.engineers_goggle_skill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_eye_skill;
 import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_hands_skill;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -34,12 +35,16 @@ public class AllSkills {
     //   ====================
     //   | Intrinsic Skills |
     //   ====================
+    public static final RegistryObject<mechanical_eye_skill> MECHANICAL_EYE_SKILL =
+            skillRegistry.register("mechanical_eye", mechanical_eye_skill::new);
+
+    public static final RegistryObject<mechanical_hands_skill> MECHANICAL_HANDS_SKILL =
+            skillRegistry.register("mechanical_hands", mechanical_hands_skill::new);
+
 
     //   ================
     //   | Extra Skills |
     //   ================
-    public static final RegistryObject<engineers_goggle_skill> ENGINEERS_GOGGLE_SKILL =
-            skillRegistry.register("engineers_goggle_skill", engineers_goggle_skill::new);
 
     //   =================
     //   | Unique Skills |
