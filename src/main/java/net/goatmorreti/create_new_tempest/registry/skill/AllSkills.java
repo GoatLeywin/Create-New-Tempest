@@ -2,10 +2,11 @@ package net.goatmorreti.create_new_tempest.registry.skill;
 
 
 import net.goatmorreti.create_new_tempest.CreateNewTempest;
-import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_eye_skill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalBodySkill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalEyeSkill;
 import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
-import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_hands_skill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalHandsSkill;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -35,11 +36,14 @@ public class AllSkills {
     //   ====================
     //   | Intrinsic Skills |
     //   ====================
-    public static final RegistryObject<mechanical_eye_skill> MECHANICAL_EYE_SKILL =
-            skillRegistry.register("mechanical_eye", mechanical_eye_skill::new);
+    public static final RegistryObject<MechanicalEyeSkill> MECHANICAL_EYE_SKILL =
+            skillRegistry.register("mechanical_eye", MechanicalEyeSkill::new);
 
-    public static final RegistryObject<mechanical_hands_skill> MECHANICAL_HANDS_SKILL =
-            skillRegistry.register("mechanical_hands", mechanical_hands_skill::new);
+    public static final RegistryObject<MechanicalHandsSkill> MECHANICAL_HANDS_SKILL =
+            skillRegistry.register("mechanical_hands", MechanicalHandsSkill::new);
+
+    public static final RegistryObject<MechanicalBodySkill> MECHANICAL_BODY_SKILL =
+            skillRegistry.register("mechanical_body", MechanicalBodySkill::new);
 
 
     //   ================

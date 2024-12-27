@@ -57,12 +57,12 @@ public class CreateNewTempest {
     }
 
     private boolean isFirstLaunch() {
-        File markerFile = new File("defaultconfigs/tensura-reincarnated/mysticism_first_launch_marker");
+        File markerFile = new File("defaultconfigs/tensura-reincarnated/tempest_first_launch_marker");
         return !markerFile.exists();
     }
 
     private void markAsEdited() {
-        File markerFile = new File("defaultconfigs/tensura-reincarnated/mysticism_first_launch_marker");
+        File markerFile = new File("defaultconfigs/tensura-reincarnated/tempest_first_launch_marker");
 
         try {
             if (markerFile.createNewFile()) {
@@ -93,8 +93,8 @@ public class CreateNewTempest {
         }
 
         String content = contentBuilder.toString();
-        line = Arrays.toString(new String[]{"create_new_tempest:mechanical_colossus"});
-        String[] newRandom = new String[]{"create_new_tempest:mechanical_colossus"};
+        line = Arrays.toString(new String[]{"create_new_tempest:mechanical_construct", "create_new_tempest:mechanical_colossus"});
+        String[] newRandom = new String[]{"create_new_tempest:mechanical_construct", "create_new_tempest:mechanical_colossus"};
         //String[] newSkills = new String[]{"trmysticism:dreamer", "trmysticism:crasher"};
         String startingRacesKey = "startingRaces = [";
         String randomRacesKey = "possibleRandomRaces = [";

@@ -10,7 +10,7 @@ public class CreateNewTempestConfig {
 
     private CreateNewTempestConfig(ForgeConfigSpec.Builder builder) {
         builder.push("races");
-        this.racesConfig = new CreateNewTempestRacesConfig();
+        this.racesConfig = new CreateNewTempestRacesConfig(builder);
         builder.pop();
     }
 

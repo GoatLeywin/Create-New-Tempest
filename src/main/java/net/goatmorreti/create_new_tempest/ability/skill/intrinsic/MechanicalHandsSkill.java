@@ -25,14 +25,14 @@ import net.minecraft.world.phys.HitResult;
 /**
  * Mechanical Hands skill for using wrench-like functionality on press.
  */
-public class mechanical_hands_skill extends Skill {
+public class MechanicalHandsSkill extends Skill {
 
     private final double skillCastCost = 20.0;  // Magicule cost per activation
     private final double epUnlockCost = 6000.0; // EP requirement to unlock
     private final double learnCost = 100.0;     // Learning difficulty
     private final int numModes = 2; // Two modes: Rotate and Remove
 
-    public mechanical_hands_skill() {
+    public MechanicalHandsSkill() {
         super(SkillType.INTRINSIC);
     }
 

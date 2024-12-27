@@ -28,7 +28,7 @@ public class MechanicalConstructRace extends Race {
     }
 
     public float getPlayerSize() {
-        return 0.8F;
+        return 1.8F;
     }
 
     public double getBaseAttackDamage() {

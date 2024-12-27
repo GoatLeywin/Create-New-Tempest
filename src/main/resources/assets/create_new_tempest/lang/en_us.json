@@ -19,5 +19,8 @@
 
   "create_new_tempest.race.mechanical_colossus": "Mechanical Colossus",
 
+  "create_new_tempest.skill.mechanical_body": "Mechanical Body",
+  "create_new_tempest.skill.mechanical_body.description": "When activated, this skill allows you to create and command another mechanical body, ensuring that even the harshest blows cannot end your existence.",
+
   "itemGroup.create_new_tempest_tab": "Create: New Tempest"
 }

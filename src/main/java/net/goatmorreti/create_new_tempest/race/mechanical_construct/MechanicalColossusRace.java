@@ -47,7 +47,7 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 1.0;
+        return 0.08;
     }
 
     public Pair<Double, Double> getBaseAuraRange() {
@@ -72,6 +72,7 @@ public class MechanicalColossusRace extends Race {
 
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
+        skills.add(AllSkills.MECHANICAL_BODY_SKILL.get());
         return skills;
     }
 

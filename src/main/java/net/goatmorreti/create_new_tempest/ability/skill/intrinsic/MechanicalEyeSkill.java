@@ -10,7 +10,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -19,14 +18,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class mechanical_eye_skill extends Skill {
+public class MechanicalEyeSkill extends Skill {
 
     private final double skillCastCost = 10.0;
     private final double epUnlockCost = 5000.0;
     private final double learnCost = 50.0;
     private final Map<Player, Predicate<Player>> activePredicates = new HashMap<>();
 
-    public mechanical_eye_skill() {
+    public MechanicalEyeSkill() {
         super(SkillType.INTRINSIC);
     }
 
