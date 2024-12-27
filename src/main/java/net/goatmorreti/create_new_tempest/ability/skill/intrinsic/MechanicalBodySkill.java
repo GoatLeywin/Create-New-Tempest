@@ -9,10 +9,12 @@ import com.github.manasmods.tensura.registry.attribute.TensuraAttributeRegistry;
 import com.github.manasmods.tensura.registry.entity.TensuraEntityTypes;
 import com.github.manasmods.tensura.capability.ep.TensuraEPCapability;
 import com.simibubi.create.AllSoundEvents;
+import net.goatmorreti.create_new_tempest.CreateNewTempest;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -33,6 +35,10 @@ import java.util.stream.Collectors;
 public class MechanicalBodySkill extends Skill {
     public MechanicalBodySkill() {
         super(SkillType.INTRINSIC);
+    }
+
+    public ResourceLocation getSkillIcon() {
+        return new ResourceLocation(CreateNewTempest.MOD_ID, "textures/skill/intrinsic/mechanical_eye.png");
     }
 
     public double learningCost() {
