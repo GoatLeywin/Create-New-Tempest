@@ -1,11 +1,10 @@
-package net.goatmorreti.create_new_tempest.race.mechanical_construct;
+package net.goatmorreti.create_new_tempest.race.mechanical_titan;
 
 import com.github.manasmods.tensura.ability.TensuraSkill;
+import com.github.manasmods.tensura.capability.race.TensuraPlayerCapability;
 import com.github.manasmods.tensura.race.Race;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
-import com.github.manasmods.tensura.registry.race.TensuraRaces;
-import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
-import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
+import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
 import com.mojang.datafixers.util.Pair;
 
@@ -15,20 +14,19 @@ import java.util.List;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.registries.IForgeRegistry;
 
-public class MechanicalConstructRace extends Race {
+public class MechanicalTitanRace extends Race {
 
-    public MechanicalConstructRace() {
+    public MechanicalTitanRace() {
         super(Difficulty.INTERMEDIATE);
     }
 
     public double getBaseHealth() {
-        return (double)26.0F;
+        return (double)104.0F;
     }
 
     public float getPlayerSize() {
-        return 1.8F;
+        return 4.0F;
     }
 
     public double getBaseAttackDamage() {
@@ -40,56 +38,52 @@ public class MechanicalConstructRace extends Race {
     }
 
     public double getKnockbackResistance() {
-        return (double)0.5F;
+        return (double)1.0F;
     }
 
     public double getJumpHeight() {
-        return JumpPowerHelper.defaultPlayer();
+        return JumpPowerHelper.defaultPlayer((double)1.0F);
     }
 
     public double getMovementSpeed() {
-        return 0.05;
+        return 0.1;
     }
 
-    @Override
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(10.0, 100.0);
+        return Pair.of(500.0, 1000.0);
     }
 
-    @Override
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(1500.0, 3000.0);
+        return Pair.of(9000.0, 18000.0);
     }
 
-    @Override
     public boolean isMajin() {
         return false;
     }
 
-    @Override
     public double getSpiritualHealthMultiplier() {
         return 2.0;
     }
 
-    @Override
     public double getAdditionalSpiritualHealth() {
         return 20.0;
     }
 
-    @Override
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.MECHANICAL_EYE_SKILL.get());
-        skills.add(AllSkills.MECHANICAL_HANDS_SKILL.get());
         return skills;
     }
 
-    @Override
     public List<Race> getNextEvolutions(Player player) {
-        List<Race> list = new ArrayList();
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_COLOSSUS));
-        return list;
+        List<Race> evolutions = new ArrayList<>();
+        // Define future evolutions if applicable
+        return evolutions;
     }
+
+    public double getEvolutionPercentage(Player player) {
+        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalTitan.get();
+    }
+
     public void raceTick(Player player) {
         if (player.isInWater()) {
             // Apply Corrosion I when the player is in water
@@ -102,3 +96,5 @@ public class MechanicalConstructRace extends Race {
         }
     }
 }
+
+

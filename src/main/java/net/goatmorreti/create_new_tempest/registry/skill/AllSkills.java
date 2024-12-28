@@ -7,6 +7,7 @@ import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalEyeS
 import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalHandsSkill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_warrior.OverclockSkill;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,6 +46,8 @@ public class AllSkills {
     public static final RegistryObject<MechanicalBodySkill> MECHANICAL_BODY_SKILL =
             skillRegistry.register("mechanical_body", MechanicalBodySkill::new);
 
+    public static final RegistryObject<OverclockSkill> OVERCLOCK_SKILL =
+            skillRegistry.register("overclock", OverclockSkill::new);
 
     //   ================
     //   | Extra Skills |
