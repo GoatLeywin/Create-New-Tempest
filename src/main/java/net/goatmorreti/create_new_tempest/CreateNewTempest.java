@@ -3,6 +3,7 @@ package net.goatmorreti.create_new_tempest;
 import com.mojang.logging.LogUtils;
 import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
 import net.goatmorreti.create_new_tempest.item.ModItems;
+import net.goatmorreti.create_new_tempest.registry.effect.AllEffects;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +29,7 @@ public class CreateNewTempest {
 
         ModItems.register(modEventBus);
         AllSkills.register(modEventBus);
+        AllEffects.register(modEventBus);
 
         modEventBus.addListener(this::onCommonSetup);
 

@@ -41,10 +41,6 @@ public class MechanicalBodySkill extends Skill {
         return new ResourceLocation(CreateNewTempest.MOD_ID, "textures/skill/intrinsic/mechanical_eye.png");
     }
 
-    public double learningCost() {
-        return (double)10000.0F;
-    }
-
     public boolean canTick(ManasSkillInstance instance, LivingEntity entity) {
         return true;
     }

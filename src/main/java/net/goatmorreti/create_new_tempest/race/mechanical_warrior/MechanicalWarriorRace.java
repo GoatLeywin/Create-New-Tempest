@@ -79,7 +79,7 @@ public class MechanicalWarriorRace extends Race {
     @Override
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        //skills.add(AllSkills.MECHANICAL_EYE_SKILL.get());
+        skills.add(AllSkills.OVERCLOCK_SKILL.get());
         return skills;
     }
 

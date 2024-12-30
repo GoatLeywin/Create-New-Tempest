@@ -21,8 +21,7 @@ import java.util.function.Predicate;
 public class MechanicalEyeSkill extends Skill {
 
     private final double skillCastCost = 10.0;
-    private final double epUnlockCost = 5000.0;
-    private final double learnCost = 50.0;
+
     private final Map<Player, Predicate<Player>> activePredicates = new HashMap<>();
 
     public MechanicalEyeSkill() {
@@ -33,16 +32,8 @@ public class MechanicalEyeSkill extends Skill {
         return new ResourceLocation(CreateNewTempest.MOD_ID, "textures/skill/intrinsic/mechanical_eye.png");
     }
 
-    public boolean meetEPRequirement(Player entity, double curEP) {
-        return curEP >= epUnlockCost;
-    }
-
     public double magiculeCost(LivingEntity entity, ManasSkillInstance instance) {
         return skillCastCost;
-    }
-
-    public double learningCost() {
-        return learnCost;
     }
 
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
