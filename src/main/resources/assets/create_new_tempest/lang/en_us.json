@@ -22,6 +22,9 @@
   "create_new_tempest.skill.overclock": "Overclock",
   "create_new_tempest.skill.overclock.description": "When activated, this skill overloads your mechanical systems, driving performance beyond designed thresholds, enveloping your frame in arcs of red lightning as precision and power reach unparalleled levels.",
 
+  "create_new_tempest.skill.augment_frame": "Augment Frame",
+  "create_new_tempest.skill.augment_frame.description": "Activating, this skill pushes your frame to its physical peak, amplifying power and resilience while sacrificing agility",
+
   "create_new_tempest.race.mechanical_construct": "Mechanical Construct",
   "create_new_tempest.race.mechanical_construct.notes": "A powerful mechanical race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs, but a dire weakness to water.",
 

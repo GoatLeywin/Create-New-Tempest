@@ -26,7 +26,7 @@ public class MechanicalGiantRace extends Race {
     }
 
     public double getBaseHealth() {
-        return (double)52.0F;
+        return (double)30.0F;
     }
 
     public float getPlayerSize() {
@@ -34,15 +34,15 @@ public class MechanicalGiantRace extends Race {
     }
 
     public double getBaseAttackDamage() {
-        return (double)1.0F;
+        return (double)1.5F;
     }
 
     public double getBaseAttackSpeed() {
-        return (double)4.0F;
+        return (double)3.0F;
     }
 
     public double getKnockbackResistance() {
-        return (double)1.0F;
+        return (double)2.0F;
     }
 
     public double getJumpHeight() {
@@ -50,7 +50,7 @@ public class MechanicalGiantRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 0.08;
+        return 0.1;
     }
 
     public Pair<Double, Double> getBaseAuraRange() {
@@ -58,11 +58,11 @@ public class MechanicalGiantRace extends Race {
     }
 
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(4500.0, 9000.0);
+        return Pair.of(1800.0, 3200.0);
     }
 
     public boolean isMajin() {
-        return false;
+        return true;
     }
 
     public double getSpiritualHealthMultiplier() {
@@ -75,7 +75,7 @@ public class MechanicalGiantRace extends Race {
 
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        //skills.add(AllSkills.MECHANICAL_BODY_SKILL.get());
+        skills.add(AllSkills.AUGMENT_FRAME_SKILL.get());
         return skills;
     }
 

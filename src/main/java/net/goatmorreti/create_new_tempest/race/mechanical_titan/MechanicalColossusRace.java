@@ -26,23 +26,23 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getBaseHealth() {
-        return (double)52.0F;
+        return (double)50.0F;
     }
 
     public float getPlayerSize() {
-        return 2.5F;
+        return 2.8F;
     }
 
     public double getBaseAttackDamage() {
-        return (double)1.0F;
+        return (double)2.0F;
     }
 
     public double getBaseAttackSpeed() {
-        return (double)4.0F;
+        return (double)3.0F;
     }
 
     public double getKnockbackResistance() {
-        return (double)1.0F;
+        return (double)3.0F;
     }
 
     public double getJumpHeight() {
@@ -50,19 +50,19 @@ public class MechanicalColossusRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 0.08;
+        return 0.1;
     }
 
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(30.0, 300.0);
+        return Pair.of(300.0, 1000.0);
     }
 
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(4500.0, 9000.0);
+        return Pair.of(3500.0, 4500.0);
     }
 
     public boolean isMajin() {
-        return false;
+        return true;
     }
 
     public double getSpiritualHealthMultiplier() {

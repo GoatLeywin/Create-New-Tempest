@@ -56,19 +56,19 @@ public class MechanicalNoviceRace extends Race {
     }
 
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(1500.0, 3000.0);
+        return Pair.of(3000.0, 4500.0);
     }
 
     public boolean isMajin() {
-        return false;
+        return true;
     }
 
     public double getSpiritualHealthMultiplier() {
-        return 2.0;
+        return 4.0;
     }
 
     public double getAdditionalSpiritualHealth() {
-        return 20.0;
+        return 30.0;
     }
 
     public List<TensuraSkill> getIntrinsicSkills(Player player) {

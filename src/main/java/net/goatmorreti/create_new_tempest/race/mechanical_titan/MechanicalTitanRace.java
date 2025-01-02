@@ -22,23 +22,23 @@ public class MechanicalTitanRace extends Race {
     }
 
     public double getBaseHealth() {
-        return (double)104.0F;
+        return (double)100.0F;
     }
 
     public float getPlayerSize() {
-        return 4.0F;
+        return 3.0F;
     }
 
     public double getBaseAttackDamage() {
-        return (double)1.0F;
-    }
-
-    public double getBaseAttackSpeed() {
         return (double)4.0F;
     }
 
+    public double getBaseAttackSpeed() {
+        return (double)3.5F;
+    }
+
     public double getKnockbackResistance() {
-        return (double)1.0F;
+        return (double)4.0F;
     }
 
     public double getJumpHeight() {
@@ -50,15 +50,15 @@ public class MechanicalTitanRace extends Race {
     }
 
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(500.0, 1000.0);
+        return Pair.of(1000.0, 3000.0);
     }
 
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(9000.0, 18000.0);
+        return Pair.of(4000.0, 6000.0);
     }
 
     public boolean isMajin() {
-        return false;
+        return true;
     }
 
     public double getSpiritualHealthMultiplier() {

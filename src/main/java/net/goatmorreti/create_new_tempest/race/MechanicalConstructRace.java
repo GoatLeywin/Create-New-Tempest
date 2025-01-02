@@ -63,7 +63,7 @@ public class MechanicalConstructRace extends Race {
 
     @Override
     public boolean isMajin() {
-        return false;
+        return true;
     }
 
     @Override

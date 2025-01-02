@@ -2,13 +2,14 @@ package net.goatmorreti.create_new_tempest.registry.skill;
 
 
 import net.goatmorreti.create_new_tempest.CreateNewTempest;
-import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalBodySkill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_scholar.MechanicalBodySkill;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalEyeSkill;
 import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalHandsSkill;
+import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_titan.AugmentFrameSkill;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_warrior.OverclockSkill;
-import net.goatmorreti.create_new_tempest.ability.skill.ultimate.DeusExMachinaSkill;
+//import net.goatmorreti.create_new_tempest.ability.skill.ultimate.DeusExMachinaSkill;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -50,6 +51,9 @@ public class AllSkills {
     public static final RegistryObject<OverclockSkill> OVERCLOCK_SKILL =
             skillRegistry.register("overclock", OverclockSkill::new);
 
+    public static final RegistryObject<AugmentFrameSkill> AUGMENT_FRAME_SKILL =
+            skillRegistry.register("augment_frame", AugmentFrameSkill::new);
+
     //   ================
     //   | Extra Skills |
     //   ================
@@ -67,6 +71,6 @@ public class AllSkills {
     //   | Ultimate Skills |
     //   ===================
 
-    public static final RegistryObject<DeusExMachinaSkill> DEUS_EX_MACHINA_SKILL =
-            skillRegistry.register("deus_ex_machina", DeusExMachinaSkill::new);
+    //public static final RegistryObject<DeusExMachinaSkill> DEUS_EX_MACHINA_SKILL =
+            //skillRegistry.register("deus_ex_machina", DeusExMachinaSkill::new);
 }
