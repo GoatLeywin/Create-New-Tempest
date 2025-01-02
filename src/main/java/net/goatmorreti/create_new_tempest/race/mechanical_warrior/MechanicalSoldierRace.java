@@ -1,9 +1,11 @@
-package net.goatmorreti.create_new_tempest.race;
+package net.goatmorreti.create_new_tempest.race.mechanical_warrior;
 
 import com.github.manasmods.tensura.ability.TensuraSkill;
+import com.github.manasmods.tensura.capability.race.TensuraPlayerCapability;
 import com.github.manasmods.tensura.race.Race;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
 import com.github.manasmods.tensura.registry.race.TensuraRaces;
+import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
 import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
@@ -17,14 +19,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class MechanicalConstructRace extends Race {
+public class MechanicalSoldierRace extends Race {
 
-    public MechanicalConstructRace() {
+    public MechanicalSoldierRace() {
         super(Difficulty.INTERMEDIATE);
     }
 
     public double getBaseHealth() {
-        return (double)26.0F;
+        return (double)30.0F;
     }
 
     public float getPlayerSize() {
@@ -32,7 +34,7 @@ public class MechanicalConstructRace extends Race {
     }
 
     public double getBaseAttackDamage() {
-        return (double)1.0F;
+        return (double)1.2F;
     }
 
     public double getBaseAttackSpeed() {
@@ -48,17 +50,17 @@ public class MechanicalConstructRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 0.1;
+        return 0.15;
     }
 
     @Override
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(10.0, 100.0);
+        return Pair.of(1000.0, 2000.0);
     }
 
     @Override
     public Pair<Double, Double> getBaseMagiculeRange() {
-        return Pair.of(1500.0, 3000.0);
+        return Pair.of(1500.0, 3500.0);
     }
 
     @Override
@@ -79,18 +81,18 @@ public class MechanicalConstructRace extends Race {
     @Override
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.MECHANICAL_EYE_SKILL.get());
-        skills.add(AllSkills.MECHANICAL_HANDS_SKILL.get());
+        //skills.add(AllSkills.OVERCLOCK_SKILL.get());
         return skills;
     }
 
-    @Override
     public List<Race> getNextEvolutions(Player player) {
         List<Race> list = new ArrayList();
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_GIANT));
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_COMBATANT));
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_NOVICE));
+        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_WARRIOR));
         return list;
+    }
+
+    public double getEvolutionPercentage(Player player) {
+        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalSoldier.get();
     }
 
     public void raceTick(Player player) {

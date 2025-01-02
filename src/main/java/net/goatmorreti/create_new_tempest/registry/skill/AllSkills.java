@@ -8,6 +8,7 @@ import com.github.manasmods.manascore.api.skills.ManasSkill;
 import com.github.manasmods.manascore.api.skills.SkillAPI;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.MechanicalHandsSkill;
 import net.goatmorreti.create_new_tempest.ability.skill.intrinsic.mechanical_warrior.OverclockSkill;
+import net.goatmorreti.create_new_tempest.ability.skill.ultimate.DeusExMachinaSkill;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -65,4 +66,7 @@ public class AllSkills {
     //   ===================
     //   | Ultimate Skills |
     //   ===================
+
+    public static final RegistryObject<DeusExMachinaSkill> DEUS_EX_MACHINA_SKILL =
+            skillRegistry.register("deus_ex_machina", DeusExMachinaSkill::new);
 }

@@ -1,9 +1,11 @@
 package net.goatmorreti.create_new_tempest.race.mechanical_warrior;
 
 import com.github.manasmods.tensura.ability.TensuraSkill;
+import com.github.manasmods.tensura.capability.race.TensuraPlayerCapability;
 import com.github.manasmods.tensura.race.Race;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
 import com.github.manasmods.tensura.registry.race.TensuraRaces;
+import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
 import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
@@ -28,7 +30,7 @@ public class MechanicalWarriorRace extends Race {
     }
 
     public float getPlayerSize() {
-        return 1.0F;
+        return 2.0F;
     }
 
     public double getBaseAttackDamage() {
@@ -79,7 +81,7 @@ public class MechanicalWarriorRace extends Race {
     @Override
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.OVERCLOCK_SKILL.get());
+        //skills.add(AllSkills.OVERCLOCK_SKILL.get());
         return skills;
     }
 
@@ -89,6 +91,11 @@ public class MechanicalWarriorRace extends Race {
         //list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_COLOSSUS));
         return list;
     }
+
+    public double getEvolutionPercentage(Player player) {
+        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalWarrior.get();
+    }
+
     public void raceTick(Player player) {
         if (player.isInWater()) {
             // Apply Corrosion I when the player is in water

@@ -1,9 +1,11 @@
-package net.goatmorreti.create_new_tempest.race;
+package net.goatmorreti.create_new_tempest.race.mechanical_scholar;
 
 import com.github.manasmods.tensura.ability.TensuraSkill;
+import com.github.manasmods.tensura.capability.race.TensuraPlayerCapability;
 import com.github.manasmods.tensura.race.Race;
 import com.github.manasmods.tensura.registry.effects.TensuraMobEffects;
 import com.github.manasmods.tensura.registry.race.TensuraRaces;
+import net.goatmorreti.create_new_tempest.config.CreateNewTempestConfig;
 import net.goatmorreti.create_new_tempest.registry.race.AllRaces;
 import net.goatmorreti.create_new_tempest.registry.skill.AllSkills;
 import com.github.manasmods.tensura.util.JumpPowerHelper;
@@ -17,11 +19,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class MechanicalConstructRace extends Race {
+public class MechanicalScholarRace extends Race {
 
-    public MechanicalConstructRace() {
-        super(Difficulty.INTERMEDIATE);
-    }
+    public MechanicalScholarRace() {super(Difficulty.INTERMEDIATE);}
 
     public double getBaseHealth() {
         return (double)26.0F;
@@ -51,46 +51,40 @@ public class MechanicalConstructRace extends Race {
         return 0.1;
     }
 
-    @Override
     public Pair<Double, Double> getBaseAuraRange() {
         return Pair.of(10.0, 100.0);
     }
 
-    @Override
     public Pair<Double, Double> getBaseMagiculeRange() {
         return Pair.of(1500.0, 3000.0);
     }
 
-    @Override
     public boolean isMajin() {
         return false;
     }
 
-    @Override
     public double getSpiritualHealthMultiplier() {
         return 2.0;
     }
 
-    @Override
     public double getAdditionalSpiritualHealth() {
         return 20.0;
     }
 
-    @Override
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.MECHANICAL_EYE_SKILL.get());
-        skills.add(AllSkills.MECHANICAL_HANDS_SKILL.get());
+        //skills.add(AllSkills.MECHANICAL_EYE_SKILL.get());
         return skills;
     }
 
-    @Override
     public List<Race> getNextEvolutions(Player player) {
         List<Race> list = new ArrayList();
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_GIANT));
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_COMBATANT));
-        list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_NOVICE));
+        //list.add((Race)((IForgeRegistry) TensuraRaces.RACE_REGISTRY.get()).getValue(AllRaces.MECHANICAL_GIANT));
         return list;
+    }
+
+    public double getEvolutionPercentage(Player player) {
+        return TensuraPlayerCapability.getBaseEP(player) * (double)100.0F / (Double) CreateNewTempestConfig.INSTANCE.racesConfig.epToMechanicalScholar.get();
     }
 
     public void raceTick(Player player) {
@@ -105,3 +99,4 @@ public class MechanicalConstructRace extends Race {
         }
     }
 }
+

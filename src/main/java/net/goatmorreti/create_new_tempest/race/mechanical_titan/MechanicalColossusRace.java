@@ -75,7 +75,7 @@ public class MechanicalColossusRace extends Race {
 
     public List<TensuraSkill> getIntrinsicSkills(Player player) {
         List<TensuraSkill> skills = new ArrayList<>();
-        skills.add(AllSkills.MECHANICAL_BODY_SKILL.get());
+        //skills.add(AllSkills.MECHANICAL_BODY_SKILL.get());
         return skills;
     }
 

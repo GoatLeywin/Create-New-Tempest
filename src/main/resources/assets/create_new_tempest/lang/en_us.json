@@ -6,23 +6,34 @@
   "item.create_new_tempest.yellow_slime_poop": "Yellow Slime Poop",
   "item.create_new_tempest.green_slime_poop": "Green Slime Poop",
 
+  "itemGroup.create_new_tempest_tab": "Create: New Tempest",
+
   "create_new_tempest.skill.mechanical_eye": "Mechanical Eye",
   "create_new_tempest.skill.mechanical_eye.description": "When toggled on, this skill grants you unparalleled insight into intricate mechanisms.",
+
+  "create_new_tempest.skill.mechanical_body": "Mechanical Body",
+  "create_new_tempest.skill.mechanical_body.description": "When activated, this skill allows you to create and command another mechanical body, ensuring that even the harshest blows cannot end your existence.",
 
   "create_new_tempest.skill.mechanical_hands": "Mechanical Hands",
   "create_new_tempest.skill.mechanical_hands.description": "When activated, this skill grants you unmatched precision in manipulating complex machinery, allowing you to effortlessly rotate or disassemble mechanical structures with ease.",
   "create_new_tempest.skill.mode.mechanical_hands.rotate": "Rotate",
   "create_new_tempest.skill.mode.mechanical_hands.remove": "Remove",
 
+  "create_new_tempest.skill.overclock": "Overclock",
+  "create_new_tempest.skill.overclock.description": "When activated, this skill overloads your mechanical systems, driving performance beyond designed thresholds, enveloping your frame in arcs of red lightning as precision and power reach unparalleled levels.",
+
   "create_new_tempest.race.mechanical_construct": "Mechanical Construct",
   "create_new_tempest.race.mechanical_construct.notes": "A powerful mechanical race, built for resilience and complex mechanisms. Begins with high durability and mastery over intricate designs, but a dire weakness to water.",
 
+  "create_new_tempest.race.mechanical_giant": "Mechanical Giant",
   "create_new_tempest.race.mechanical_colossus": "Mechanical Colossus",
-
-  "create_new_tempest.skill.mechanical_body": "Mechanical Body",
-  "create_new_tempest.skill.mechanical_body.description": "When activated, this skill allows you to create and command another mechanical body, ensuring that even the harshest blows cannot end your existence.",
-
   "create_new_tempest.race.mechanical_titan": "Mechanical Titan",
 
-  "itemGroup.create_new_tempest_tab": "Create: New Tempest"
+  "create_new_tempest.race.mechanical_combatant": "Mechanical Combatant",
+  "create_new_tempest.race.mechanical_soldier": "Mechanical Soldier",
+  "create_new_tempest.race.mechanical_warrior": "Mechanical Warrior",
+
+  "create_new_tempest.race.mechanical_expert": "Mechanical Expert",
+  "create_new_tempest.race.mechanical_novice": "Mechanical Novice",
+  "create_new_tempest.race.mechanical_scholar": "Mechanical Scholar"
 }

@@ -56,9 +56,9 @@ public class MechanicalBodySkill extends Skill {
 
         CompoundTag tag = instance.getOrCreateTag();
 
-        // Check if the "UnyieldingList" tag exists
-        if (tag.contains("UnyieldingList")) {
-            CompoundTag list = tag.getCompound("UnyieldingList");
+        // Check if the "BodyList" tag exists
+        if (tag.contains("BodyList")) {
+            CompoundTag list = tag.getCompound("BodyList");
             if (list == null) {
                 return;
             }
@@ -100,7 +100,7 @@ public class MechanicalBodySkill extends Skill {
             for (String uuid : uuidList) {
                 list.putInt(uuid, 1);
             }
-            tag.put("UnyieldingList", list);
+            tag.put("BodyList", list);
             instance.markDirty();
         }
     }
@@ -122,9 +122,6 @@ public class MechanicalBodySkill extends Skill {
                 1.0F,
                 1.0F
         );
-        if (entity instanceof Player player) {
-            //clone.initializeForPlayer(player);
-        }
 
         clone.setSkill(this);
         clone.setImmobile(true);
@@ -153,34 +150,47 @@ public class MechanicalBodySkill extends Skill {
             CompoundTag tag = instance.getOrCreateTag();
             double maxMP = entity.getAttributeValue(TensuraAttributeRegistry.MAX_MAGICULE.get());
 
+            // Check if a backup already exists
             if (!tag.contains("Backup")) {
+                // Create a new backup if none exists and the player has enough magicule
                 if (!SkillHelper.outOfMagicule(entity, maxMP * 0.25)) {
                     this.spawnBackup(instance, entity, false);
                     instance.setCoolDown(instance.isMastered(entity) ? 3 : 5);
                 }
             } else {
+                // Retrieve the existing backup UUID
                 UUID uuid = tag.getUUID("Backup");
                 Entity existingEntity = SkillHelper.getEntityFromUUID(serverLevel, uuid, CloneEntity.class::isInstance);
 
                 if (existingEntity instanceof CloneEntity backup) {
-                    if (entity.isDeadOrDying()) {
+                    if (backup.isDeadOrDying()) {
+                        // Notify the player about the dead backup
                         if (entity instanceof Player player) {
                             player.displayClientMessage(
-                                    Component.translatable("tensura.skill.mode.unyielding.backup_remove")
+                                    Component.translatable("Mechanical Body: Backup dead producing new backup")
                                             .withStyle(ChatFormatting.RED),
                                     true
                             );
                         }
-                        backup.remove();
+                        tag.remove("Backup"); // Clear the backup UUID
+                        instance.markDirty(); // Mark the instance as dirty
+
+                        // Immediately spawn a new backup
+                        if (!SkillHelper.outOfMagicule(entity, maxMP * 0.25)) {
+                            this.spawnBackup(instance, entity, false);
+                            instance.setCoolDown(instance.isMastered(entity) ? 3 : 5);
+                        }
                     } else if (backup.level != entity.level && !instance.isMastered(entity)) {
+                        // Handle case where the backup is in a different dimension
                         if (entity instanceof Player player) {
                             player.displayClientMessage(
-                                    Component.translatable("tensura.skill.mode.unyielding.backup_different_dimension")
+                                    Component.translatable("Mechanical Body: Backup in another dimension transfer failed")
                                             .withStyle(ChatFormatting.RED),
                                     true
                             );
                         }
                     } else if (backup.isAlive()) {
+                        // Swap positions with the backup
                         instance.setCoolDown(instance.isMastered(entity) ? 3 : 5);
                         serverLevel.playSound(
                                 null,
@@ -202,6 +212,9 @@ public class MechanicalBodySkill extends Skill {
                         backup.remove(Entity.RemovalReason.DISCARDED);
                     }
                 } else {
+                    // If the backup entity no longer exists, clear the UUID and create a new backup
+                    tag.remove("Backup");
+                    instance.markDirty(); // Mark the instance as dirty
                     if (!SkillHelper.outOfMagicule(entity, maxMP * 0.25)) {
                         this.spawnBackup(instance, entity, false);
                         instance.setCoolDown(instance.isMastered(entity) ? 3 : 5);
