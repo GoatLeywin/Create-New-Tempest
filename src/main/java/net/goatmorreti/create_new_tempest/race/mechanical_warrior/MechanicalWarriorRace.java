@@ -26,7 +26,7 @@ public class MechanicalWarriorRace extends Race {
     }
 
     public double getBaseHealth() {
-        return (double)30.0F;
+        return (double)40.0F;
     }
 
     public float getPlayerSize() {
@@ -38,7 +38,7 @@ public class MechanicalWarriorRace extends Race {
     }
 
     public double getBaseAttackSpeed() {
-        return (double)4.0F;
+        return (double)4.6F;
     }
 
     public double getKnockbackResistance() {
@@ -50,12 +50,12 @@ public class MechanicalWarriorRace extends Race {
     }
 
     public double getMovementSpeed() {
-        return 0.15;
+        return 0.2;
     }
 
     @Override
     public Pair<Double, Double> getBaseAuraRange() {
-        return Pair.of(1000.0, 2000.0);
+        return Pair.of(3000.0, 4000.0);
     }
 
     @Override

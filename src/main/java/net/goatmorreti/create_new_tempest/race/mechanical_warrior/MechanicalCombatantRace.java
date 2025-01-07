@@ -34,11 +34,11 @@ public class MechanicalCombatantRace extends Race {
     }
 
     public double getBaseAttackDamage() {
-        return (double)1.2F;
+        return (double)1.0F;
     }
 
     public double getBaseAttackSpeed() {
-        return (double)4.0F;
+        return (double)4.2F;
     }
 
     public double getKnockbackResistance() {

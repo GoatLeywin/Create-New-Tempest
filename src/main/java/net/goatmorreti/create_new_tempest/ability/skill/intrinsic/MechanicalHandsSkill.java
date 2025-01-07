@@ -28,8 +28,6 @@ import net.minecraft.world.phys.HitResult;
 public class MechanicalHandsSkill extends Skill {
 
     private final double skillCastCost = 20.0;  // Magicule cost per activation
-    private final double epUnlockCost = 6000.0; // EP requirement to unlock
-    private final double learnCost = 100.0;     // Learning difficulty
     private final int numModes = 2; // Two modes: Rotate and Remove
 
     public MechanicalHandsSkill() {
@@ -38,10 +36,6 @@ public class MechanicalHandsSkill extends Skill {
 
     public ResourceLocation getSkillIcon() {
         return new ResourceLocation(CreateNewTempest.MOD_ID, "textures/skill/intrinsic/mechanical_hands.png");
-    }
-
-    public boolean meetEPRequirement(Player entity, double curEP) {
-        return curEP >= epUnlockCost;
     }
 
     public double magiculeCost(LivingEntity entity, ManasSkillInstance instance) {
@@ -53,10 +47,6 @@ public class MechanicalHandsSkill extends Skill {
         }
 
         return cost;
-    }
-
-    public double learningCost() {
-        return learnCost;
     }
 
     public int modes() {

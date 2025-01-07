@@ -24,7 +24,7 @@ public class MechanicalScholarRace extends Race {
     public MechanicalScholarRace() {super(Difficulty.INTERMEDIATE);}
 
     public double getBaseHealth() {
-        return (double)26.0F;
+        return (double)30.0F;
     }
 
     public float getPlayerSize() {
